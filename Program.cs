@@ -13,6 +13,9 @@ namespace HackerRankCode
             //var num = Console.ReadLine();
         }
 
+        /*
+         * Utility method to run the Alice and Bob game program
+         */
         static void RunAlice()
         {
             AliceBobGame abGame = new AliceBobGame();
@@ -28,6 +31,9 @@ namespace HackerRankCode
             Console.WriteLine(String.Join(" ", result));
         }
 
+        /*
+         * Utility method to run Diagonal Difference Program
+         */
         static void RunDiagonalDiff()
         {
             DiagonalDifference dDifference = new DiagonalDifference();
@@ -42,6 +48,9 @@ namespace HackerRankCode
             Console.WriteLine(dDifference.DiagonalDiff(n, a));
         }
 
+        /*
+         * Utility method to run Time Conversion Program
+         */
         static void RunMilitary()
         {
             TimeConversion timeConversion = new TimeConversion();
