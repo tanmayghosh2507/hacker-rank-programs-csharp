@@ -6,11 +6,12 @@ namespace HackerRankCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             //RunAlice();
             //RunDiagonalDiff();
-            RunMilitary();
-            //var num = Console.ReadLine();
+            //RunMilitary();
+            RunIceCreamParlor();
+            RunFunnyString();
+            var num = Console.ReadLine();
         }
 
         /*
@@ -56,6 +57,53 @@ namespace HackerRankCode
             TimeConversion timeConversion = new TimeConversion();
             string s = Console.ReadLine();
             string result = timeConversion.timeConversion(s);
+            Console.WriteLine(result);
+        }
+
+        /*
+         * Utility Method to run Ice Cream Parlor Program
+         */ 
+        static void RunIceCreamParlor()
+        {
+            int trips = Convert.ToInt32(Console.ReadLine());
+            for(int i=0; i<trips; i++)
+            {
+                int m = Convert.ToInt32(Console.ReadLine());
+                int n = Convert.ToInt32(Console.ReadLine());
+                string[] temp = Console.ReadLine().Split(' ');
+                int[] a = Array.ConvertAll(temp, Int32.Parse);
+                IceCreamParlor iceCreamParlor = new IceCreamParlor();
+                int[] result = iceCreamParlor.getCombination(a, m, n);
+                Console.WriteLine(result[0] + " " + result[1]);
+            }
+        }
+
+        /*
+         * Utility method to run Funny String Program
+         */ 
+        static void RunFunnyString()
+        {
+            int q = Convert.ToInt32(Console.ReadLine());
+            FunnyString funnyString = new FunnyString();
+            for (int a0 = 0; a0 < q; a0++)
+            {
+                string s = Console.ReadLine();
+                string result = funnyString.CheckFunnyString(s);
+                Console.WriteLine(result);
+            }
+        }
+
+        /*
+         * Utility method to run GemStone Program
+         */
+        static void RunGemStone()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] arr = new string[n];
+            for (int arr_i = 0; arr_i < n; arr_i++)
+                arr[arr_i] = Console.ReadLine();
+
+            int result = gemstones(arr);
             Console.WriteLine(result);
         }
     }

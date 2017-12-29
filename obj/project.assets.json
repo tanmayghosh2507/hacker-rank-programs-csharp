@@ -673,11 +673,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\tanma\\source\\repos\\HackerRankCode\\HackerRankCode\\HackerRankCode.csproj",
+      "projectUniqueName": "C:\\Users\\tanma\\source\\repos\\hacker-rank-programs-csharp\\HackerRankCode.csproj",
       "projectName": "HackerRankCode",
-      "projectPath": "C:\\Users\\tanma\\source\\repos\\HackerRankCode\\HackerRankCode\\HackerRankCode.csproj",
+      "projectPath": "C:\\Users\\tanma\\source\\repos\\hacker-rank-programs-csharp\\HackerRankCode.csproj",
       "packagesPath": "C:\\Users\\tanma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tanma\\source\\repos\\HackerRankCode\\HackerRankCode\\obj\\",
+      "outputPath": "C:\\Users\\tanma\\source\\repos\\hacker-rank-programs-csharp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

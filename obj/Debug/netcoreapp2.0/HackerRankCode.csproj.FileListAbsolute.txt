@@ -14,3 +14,14 @@ C:\build_output\HackerRankCode.runtimeconfig.json
 C:\build_output\HackerRankCode.runtimeconfig.dev.json
 C:\build_output\HackerRankCode.dll
 C:\build_output\HackerRankCode.pdb
+C:\Users\tanma\Source\Repos\hacker-rank-programs-csharp\obj\Debug\netcoreapp2.0\HackerRankCode.csprojResolveAssemblyReference.cache
+C:\Users\tanma\Source\Repos\hacker-rank-programs-csharp\obj\Debug\netcoreapp2.0\HackerRankCode.csproj.CoreCompileInputs.cache
+C:\Users\tanma\Source\Repos\hacker-rank-programs-csharp\obj\Debug\netcoreapp2.0\HackerRankCode.AssemblyInfoInputs.cache
+C:\Users\tanma\Source\Repos\hacker-rank-programs-csharp\obj\Debug\netcoreapp2.0\HackerRankCode.AssemblyInfo.cs
+C:\Users\tanma\source\repos\hacker-rank-programs-csharp\bin\Debug\netcoreapp2.0\HackerRankCode.deps.json
+C:\Users\tanma\source\repos\hacker-rank-programs-csharp\bin\Debug\netcoreapp2.0\HackerRankCode.runtimeconfig.json
+C:\Users\tanma\source\repos\hacker-rank-programs-csharp\bin\Debug\netcoreapp2.0\HackerRankCode.runtimeconfig.dev.json
+C:\Users\tanma\source\repos\hacker-rank-programs-csharp\bin\Debug\netcoreapp2.0\HackerRankCode.dll
+C:\Users\tanma\source\repos\hacker-rank-programs-csharp\bin\Debug\netcoreapp2.0\HackerRankCode.pdb
+C:\Users\tanma\source\repos\hacker-rank-programs-csharp\obj\Debug\netcoreapp2.0\HackerRankCode.dll
+C:\Users\tanma\source\repos\hacker-rank-programs-csharp\obj\Debug\netcoreapp2.0\HackerRankCode.pdb
