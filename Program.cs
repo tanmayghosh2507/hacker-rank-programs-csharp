@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace HackerRankCode
 {
@@ -9,8 +10,10 @@ namespace HackerRankCode
             //RunAlice();
             //RunDiagonalDiff();
             //RunMilitary();
-            RunIceCreamParlor();
-            RunFunnyString();
+            //RunIceCreamParlor();
+            //RunFunnyString();
+            //RunFibonacci();
+            RunJourneyToMoon();
             var num = Console.ReadLine();
         }
 
@@ -103,7 +106,41 @@ namespace HackerRankCode
             for (int arr_i = 0; arr_i < n; arr_i++)
                 arr[arr_i] = Console.ReadLine();
 
-            int result = gemstones(arr);
+            GemStone gemStone = new GemStone();
+            int result = gemStone.findGemStoneElements(arr);
+            Console.WriteLine(result);
+        }
+
+        /*
+         * Utility method to run Modified Fibonacci Program
+         */
+        static void RunFibonacci()
+        {
+            ModifiedFibonacci modifiedFibonacci = new ModifiedFibonacci();
+            string[] tokens_t1 = Console.ReadLine().Split(' ');
+            int t1 = Convert.ToInt32(tokens_t1[0]);
+            int t2 = Convert.ToInt32(tokens_t1[1]);
+            int n = Convert.ToInt32(tokens_t1[2]);
+            BigInteger result = modifiedFibonacci.fibonacciModified(t1, t2, n);
+            Console.WriteLine(result);
+        }
+
+        /*
+         * Utility method to run Journey to the Moon Program
+         */
+        static void RunJourneyToMoon()
+        {
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            int n = Convert.ToInt32(tokens_n[0]);
+            int p = Convert.ToInt32(tokens_n[1]);
+            int[][] astronaut = new int[p][];
+            JourneyToMoon journeyToMoon = new JourneyToMoon();
+            for (int astronaut_i = 0; astronaut_i < p; astronaut_i++)
+            {
+                string[] astronaut_temp = Console.ReadLine().Split(' ');
+                astronaut[astronaut_i] = Array.ConvertAll(astronaut_temp, Int32.Parse);
+            }
+            int result = journeyToMoon.journeyToMoon(n, astronaut);
             Console.WriteLine(result);
         }
     }
