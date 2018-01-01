@@ -12,10 +12,14 @@ namespace HackerRankCode
             //RunMilitary();
             //RunIceCreamParlor();
             //RunFunnyString();
+            //RunGemStone();
             //RunFibonacci();
             //RunJourneyToMoon();
             //RunPrincessGame();
-            RunPowerSum();
+            //RunPowerSum();
+            //RunMissingNumbers();
+            //RunPairs();
+            RunSherlockArray();
             var num = Console.ReadLine();
         }
 
@@ -172,6 +176,54 @@ namespace HackerRankCode
             PowerSum powerSum = new PowerSum();
             int result = powerSum.NumPowerSum(X, N, 1);
             Console.WriteLine(result);
+        }
+
+        /*
+         * Utility method to run Missing Numbers Program
+         */
+        static void RunMissingNumbers()
+        {
+            MissingNumbers missingNumbers = new MissingNumbers();
+            int n = Convert.ToInt32(Console.ReadLine());
+            string[] arr_temp = Console.ReadLine().Split(' ');
+            int[] arr = Array.ConvertAll(arr_temp, Int32.Parse);
+            int m = Convert.ToInt32(Console.ReadLine());
+            string[] brr_temp = Console.ReadLine().Split(' ');
+            int[] brr = Array.ConvertAll(brr_temp, Int32.Parse);
+            int[] result = missingNumbers.missingNumbers(arr, brr);
+            Console.WriteLine(String.Join(" ", result));
+        }
+
+        /*
+         * Utility method to run Pairs Program
+         */
+        static void RunPairs()
+        {
+            Pairs pairs = new Pairs();
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            int n = Convert.ToInt32(tokens_n[0]);
+            int k = Convert.ToInt32(tokens_n[1]);
+            string[] arr_temp = Console.ReadLine().Split(' ');
+            int[] arr = Array.ConvertAll(arr_temp, Int32.Parse);
+            int result = pairs.pairs(k, arr);
+            Console.WriteLine(result);
+        }
+
+        /*
+         * Utility method to run Sherlock Array Program
+         */
+        static void RunSherlockArray()
+        {
+            int T = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < T; a0++)
+            {
+                SherlockArray sherlockArray = new SherlockArray();
+                int n = Convert.ToInt32(Console.ReadLine());
+                string[] a_temp = Console.ReadLine().Split(' ');
+                int[] a = Array.ConvertAll(a_temp, Int32.Parse);
+                string result = sherlockArray.solve(a);
+                Console.WriteLine(result);
+            }
         }
     }
 }
