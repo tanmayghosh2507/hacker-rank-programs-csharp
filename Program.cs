@@ -13,7 +13,9 @@ namespace HackerRankCode
             //RunIceCreamParlor();
             //RunFunnyString();
             //RunFibonacci();
-            RunJourneyToMoon();
+            //RunJourneyToMoon();
+            //RunPrincessGame();
+            RunPowerSum();
             var num = Console.ReadLine();
         }
 
@@ -141,6 +143,34 @@ namespace HackerRankCode
                 astronaut[astronaut_i] = Array.ConvertAll(astronaut_temp, Int32.Parse);
             }
             int result = journeyToMoon.journeyToMoon(n, astronaut);
+            Console.WriteLine(result);
+        }
+
+        /*
+         * Utility method to run SavePrincess Game
+         */
+        static void RunPrincessGame()
+        {
+            int m;
+            m = int.Parse(Console.ReadLine());
+
+            String[] grid = new String[m];
+            for (int i = 0; i < m; i++)
+                grid[i] = Console.ReadLine();
+
+            SavePrincess savePrincess = new SavePrincess();
+            savePrincess.displayPathtoPrincess(m, grid);
+        }
+
+        /*
+         * Utility method to run PowerSum Program
+         */
+        static void RunPowerSum()
+        {
+            int X = Convert.ToInt32(Console.ReadLine());
+            int N = Convert.ToInt32(Console.ReadLine());
+            PowerSum powerSum = new PowerSum();
+            int result = powerSum.NumPowerSum(X, N, 1);
             Console.WriteLine(result);
         }
     }
