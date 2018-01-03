@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Collections.Generic;
 
 namespace HackerRankCode
 {
@@ -224,6 +225,59 @@ namespace HackerRankCode
                 string result = sherlockArray.solve(a);
                 Console.WriteLine(result);
             }
+        }
+
+        /* Program to Run Jim and Cake Order Program. In Jim's Burgers shop has n burger customers 
+         * waiting in line, each unique order i is placed by a customer at time ti and the order 
+         * takes di units of time to process. Given the information for all  orders, we need to 
+         * find the order in which all n customers will receive their burgers. If two or more orders 
+         * are fulfilled at the exact same time t, we need to sort them by ascending order number.
+         */
+        static void RunJimCakeOrder()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            //We will use SortedList Data Structure.
+            SortedList<int, List<int>> sortedList = new SortedList<int, List<int>>();
+
+            /* While reading the input, we sum the placing time ti and process time di 
+             * for each customer's order i, to get the fulfilment time. It's automatically 
+             * sorted due to Data Structure chosen. If there are multiple orders for 
+             * a single fulfilment time, we keep it as a List of order numbers.
+             */ 
+            for (int i = 1; i <= n; i++)
+            {
+                string[] a_temp = Console.ReadLine().Split(' ');
+                int[] a = Array.ConvertAll(a_temp, Int32.Parse);
+                int releaseTime = a[0] + a[1];
+                if (!sortedList.ContainsKey(releaseTime))
+                    sortedList.Add(releaseTime, new List<int>());
+
+                sortedList[releaseTime].Add(i);
+            }
+
+            //While printing, for the multiple orders with same fulfilment time, 
+            //we sort the list based on order number and then print it.
+            foreach(int key in sortedList.Keys)
+            {
+                List<int> valueSet = sortedList[key];
+                valueSet.Sort();
+                foreach(int i in valueSet)
+                    Console.Write(i+" ");
+            }
+        }
+
+        /* Utility method to Run Candies Program
+         */ 
+        static void RunCandies()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[n];
+            for (int arr_i = 0; arr_i < n; arr_i++)
+                arr[arr_i] = Convert.ToInt32(Console.ReadLine());
+
+            Candies candies = new Candies();
+            long result = candies.candies(n, arr);
+            Console.WriteLine(result);
         }
     }
 }
