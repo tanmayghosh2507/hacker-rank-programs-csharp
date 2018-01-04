@@ -20,7 +20,8 @@ namespace HackerRankCode
             //RunPowerSum();
             //RunMissingNumbers();
             //RunPairs();
-            RunSherlockArray();
+            //RunSherlockArray();
+            RunSamSubstring();
             var num = Console.ReadLine();
         }
 
@@ -277,6 +278,17 @@ namespace HackerRankCode
 
             Candies candies = new Candies();
             long result = candies.candies(n, arr);
+            Console.WriteLine(result);
+        }
+
+        /*
+         * Utility program to run Sam and SUbstring Program
+         */ 
+        static void RunSamSubstring()
+        {
+            SamSubstring samSubstring = new SamSubstring();
+            string balls = Console.ReadLine();
+            long result = samSubstring.substrings(balls);
             Console.WriteLine(result);
         }
     }
