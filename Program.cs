@@ -21,7 +21,9 @@ namespace HackerRankCode
             //RunMissingNumbers();
             //RunPairs();
             //RunSherlockArray();
-            RunSamSubstring();
+            //RunSamSubstring();
+            //RunCoinChange();
+            test();
             var num = Console.ReadLine();
         }
 
@@ -290,6 +292,39 @@ namespace HackerRankCode
             string balls = Console.ReadLine();
             long result = samSubstring.substrings(balls);
             Console.WriteLine(result);
+        }
+
+        static void RunCoinChange()
+        {
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            int n = Convert.ToInt32(tokens_n[0]);
+            int m = Convert.ToInt32(tokens_n[1]);
+            string[] c_temp = Console.ReadLine().Split(' ');
+            long[] c = Array.ConvertAll(c_temp, Int64.Parse);
+
+            CoinChange coinChange = new CoinChange();
+            // Print the number of ways of making change for 'n' units using coins having the values given by 'c'
+            long ways = coinChange.getWays(n, c, m);
+            Console.WriteLine(ways);
+        }
+
+        /*
+         * Utility method to run Recursive Digit Sum.
+         * We are given two numbers n and k. We have to calculate the super digit of p,
+         * which is created when number n is concatenated k times.
+         */ 
+        static void RunDigitSum()
+        {
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            string n = tokens_n[0];
+            int k = Convert.ToInt32(tokens_n[1]);
+            long sum = 0;
+            foreach (char c in n)
+                sum += Convert.ToInt64(c - '0');
+            RecursiveDigitSum recursiveDigitSum = new RecursiveDigitSum();
+            int result = recursiveDigitSum.digitSum(sum);
+            int final = recursiveDigitSum.digitSum(result * k);
+            Console.WriteLine(final);
         }
     }
 }
