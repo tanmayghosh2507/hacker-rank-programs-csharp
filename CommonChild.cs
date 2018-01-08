@@ -7,8 +7,8 @@
         {
             int[,] dp = new int[s1.Length+1, s2.Length+1];
 
-            /* Following steps build L[m+1][n+1] in bottom up fashion. Note
-            that L[i][j] contains length of LCS of X[0..i-1] and Y[0..j-1] */
+            /* Following steps build dp[s1.Length+1][s2.Length+1] in bottom up fashion. Note
+            that dp[i][j] contains length of LCS of s1[0..i-1] and s2[0..j-1] */
             for (int i=0; i<=s1.Length; i++)
             {
                 for(int j=0; j<=s2.Length; j++)
