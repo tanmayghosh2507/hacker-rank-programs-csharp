@@ -294,6 +294,8 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
+        /* Utility method to run coin change problem
+         */ 
         static void RunCoinChange()
         {
             string[] tokens_n = Console.ReadLine().Split(' ');
@@ -325,6 +327,17 @@ namespace HackerRankCode
             int result = recursiveDigitSum.digitSum(sum);
             int final = recursiveDigitSum.digitSum(result * k);
             Console.WriteLine(final);
+        }
+
+        /* Utility method to run Common Child Code
+         */ 
+        static void RunCommonChild()
+        {
+            string s1 = Console.ReadLine();
+            string s2 = Console.ReadLine();
+            CommonChild commonChild = new CommonChild();
+            int result = commonChild.commonChild(s1, s2);
+            Console.WriteLine(result);
         }
     }
 }
