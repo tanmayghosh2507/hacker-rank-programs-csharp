@@ -339,5 +339,36 @@ namespace HackerRankCode
             int result = commonChild.commonChild(s1, s2);
             Console.WriteLine(result);
         }
+
+        /* Utility method to run K Factorization Program
+         */ 
+        public static void RunKFactorization(String[] args)
+        {
+            string[] tokens_n = Console.ReadLine().Split(' ');
+            int n = Convert.ToInt32(tokens_n[0]);
+            int k = Convert.ToInt32(tokens_n[1]);
+            string[] A_temp = Console.ReadLine().Split(' ');
+            int[] A = Array.ConvertAll(A_temp, Int32.Parse);
+            int x = 1;
+
+            Array.Sort(A);
+            List<int> comb = new List<int>();
+            List<List<int>> res = new List<List<int>>();
+
+            KFactorization kFactorization = new KFactorization();
+            kFactorization.generateSeries(n, A, comb, res, 1);
+
+            if (res.Count==0)
+                Console.WriteLine(-1);
+            else
+            {
+                res[0].Add(1);
+                for (int i = res[0].Count - 1; i >= 0; i--)
+                {
+                    x = x * res[0][i];
+                    Console.WriteLine(x + "\t");
+                }
+            }
+        }
     }
 }
