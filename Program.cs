@@ -370,5 +370,37 @@ namespace HackerRankCode
                 }
             }
         }
+
+        /* Find the largest decent number formed by n digits for T test cases.
+         * A Decent Number has the following properties:
+         * 1. Its digits can only be 3's and/or 5's.
+         * 2. The number of 3's it contains is divisible by 5.
+         * 3. The number of 5's it contains is divisible by 3.
+         * 4. If there are more than one such number, we pick the largest one.
+         */ 
+        static void RunSherlockAndBeast(String[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                int x = n;
+                while (x % 3 != 0)
+                    x -= 5;
+                if (x < 0)
+                    Console.Write(-1);
+                else
+                {
+                    for (int i = 0; i < n; i++)
+                    {
+                        if(i<x)
+                            Console.Write(5);
+                        else
+                            Console.Write(3);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
