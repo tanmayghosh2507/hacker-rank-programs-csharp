@@ -8,5 +8,6 @@ The programs cover the following paradigms of programming:
 4. Graph Theory
 5. Arrays and Lists
 6. String Manipulations
+7. Greedy Algorithm
 
-TBD: Greedy Algorithm, Bit Manipulation, Divide & Conquer
+TBD: Bit Manipulation, Divide & Conquer
