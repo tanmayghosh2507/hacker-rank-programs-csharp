@@ -402,5 +402,12 @@ namespace HackerRankCode
                 Console.WriteLine();
             }
         }
+
+        // Utility method to run Connected Cells Program.
+        static void RunConnectedCells()
+        {
+            ConnectedCells connectedCells = new ConnectedCells();
+            connectedCells.Run();
+        }
     }
 }
