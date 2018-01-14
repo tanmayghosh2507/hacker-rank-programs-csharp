@@ -23,13 +23,10 @@ namespace HackerRankCode
             //RunSherlockArray();
             //RunSamSubstring();
             //RunCoinChange();
-            test();
             var num = Console.ReadLine();
         }
 
-        /*
-         * Utility method to run the Alice and Bob game program
-         */
+        // Utility method to run the Alice and Bob game program.
         static void RunAlice()
         {
             AliceBobGame abGame = new AliceBobGame();
@@ -45,9 +42,7 @@ namespace HackerRankCode
             Console.WriteLine(String.Join(" ", result));
         }
 
-        /*
-         * Utility method to run Diagonal Difference Program
-         */
+        // Utility method to run Diagonal Difference Program.
         static void RunDiagonalDiff()
         {
             DiagonalDifference dDifference = new DiagonalDifference();
@@ -62,9 +57,7 @@ namespace HackerRankCode
             Console.WriteLine(dDifference.DiagonalDiff(n, a));
         }
 
-        /*
-         * Utility method to run Time Conversion Program
-         */
+        // Utility method to run Time Conversion Program.
         static void RunMilitary()
         {
             TimeConversion timeConversion = new TimeConversion();
@@ -73,9 +66,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /*
-         * Utility Method to run Ice Cream Parlor Program
-         */ 
+        // Utility Method to run Ice Cream Parlor Program.
         static void RunIceCreamParlor()
         {
             int trips = Convert.ToInt32(Console.ReadLine());
@@ -91,9 +82,7 @@ namespace HackerRankCode
             }
         }
 
-        /*
-         * Utility method to run Funny String Program
-         */ 
+        // Utility method to run Funny String Program.
         static void RunFunnyString()
         {
             int q = Convert.ToInt32(Console.ReadLine());
@@ -106,9 +95,7 @@ namespace HackerRankCode
             }
         }
 
-        /*
-         * Utility method to run GemStone Program
-         */
+        // Utility method to run GemStone Program.
         static void RunGemStone()
         {
             int n = Convert.ToInt32(Console.ReadLine());
@@ -121,9 +108,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /*
-         * Utility method to run Modified Fibonacci Program
-         */
+        // Utility method to run Modified Fibonacci Program.
         static void RunFibonacci()
         {
             ModifiedFibonacci modifiedFibonacci = new ModifiedFibonacci();
@@ -135,9 +120,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /*
-         * Utility method to run Journey to the Moon Program
-         */
+        // Utility method to run Journey to the Moon Program.
         static void RunJourneyToMoon()
         {
             string[] tokens_n = Console.ReadLine().Split(' ');
@@ -154,9 +137,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /*
-         * Utility method to run SavePrincess Game
-         */
+        // Utility method to run SavePrincess Game.
         static void RunPrincessGame()
         {
             int m;
@@ -170,9 +151,7 @@ namespace HackerRankCode
             savePrincess.displayPathtoPrincess(m, grid);
         }
 
-        /*
-         * Utility method to run PowerSum Program
-         */
+        // Utility method to run PowerSum Program.
         static void RunPowerSum()
         {
             int X = Convert.ToInt32(Console.ReadLine());
@@ -182,9 +161,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /*
-         * Utility method to run Missing Numbers Program
-         */
+        // Utility method to run Missing Numbers Program.
         static void RunMissingNumbers()
         {
             MissingNumbers missingNumbers = new MissingNumbers();
@@ -198,9 +175,7 @@ namespace HackerRankCode
             Console.WriteLine(String.Join(" ", result));
         }
 
-        /*
-         * Utility method to run Pairs Program
-         */
+        // Utility method to run Pairs Program.
         static void RunPairs()
         {
             Pairs pairs = new Pairs();
@@ -213,9 +188,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /*
-         * Utility method to run Sherlock Array Program
-         */
+        // Utility method to run Sherlock Array Program.
         static void RunSherlockArray()
         {
             int T = Convert.ToInt32(Console.ReadLine());
@@ -258,8 +231,9 @@ namespace HackerRankCode
                 sortedList[releaseTime].Add(i);
             }
 
-            //While printing, for the multiple orders with same fulfilment time, 
-            //we sort the list based on order number and then print it.
+            /* While printing, for the multiple orders with same fulfilment time, 
+             * we sort the list based on order number and then print it.
+             */
             foreach(int key in sortedList.Keys)
             {
                 List<int> valueSet = sortedList[key];
@@ -269,8 +243,7 @@ namespace HackerRankCode
             }
         }
 
-        /* Utility method to Run Candies Program
-         */ 
+        // Utility method to Run Candies Program. 
         static void RunCandies()
         {
             int n = Convert.ToInt32(Console.ReadLine());
@@ -283,9 +256,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /*
-         * Utility program to run Sam and SUbstring Program
-         */ 
+        // Utility program to run Sam and SUbstring Program. 
         static void RunSamSubstring()
         {
             SamSubstring samSubstring = new SamSubstring();
@@ -294,8 +265,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /* Utility method to run coin change problem
-         */ 
+        // Utility method to run coin change problem.
         static void RunCoinChange()
         {
             string[] tokens_n = Console.ReadLine().Split(' ');
@@ -329,8 +299,7 @@ namespace HackerRankCode
             Console.WriteLine(final);
         }
 
-        /* Utility method to run Common Child Code
-         */ 
+        // Utility method to run Common Child Code.
         static void RunCommonChild()
         {
             string s1 = Console.ReadLine();
@@ -340,8 +309,7 @@ namespace HackerRankCode
             Console.WriteLine(result);
         }
 
-        /* Utility method to run K Factorization Program
-         */ 
+        // Utility method to run K Factorization Program.
         public static void RunKFactorization(String[] args)
         {
             string[] tokens_n = Console.ReadLine().Split(' ');
@@ -408,6 +376,21 @@ namespace HackerRankCode
         {
             ConnectedCells connectedCells = new ConnectedCells();
             connectedCells.Run();
+        }
+
+        // Utility method to run Sherlock and Cost Program
+        static void RunSherlockAndCost(String[] args)
+        {
+            int t = Convert.ToInt32(Console.ReadLine());
+            for (int a0 = 0; a0 < t; a0++)
+            {
+                int n = Convert.ToInt32(Console.ReadLine());
+                string[] arr_temp = Console.ReadLine().Split(' ');
+                int[] arr = Array.ConvertAll(arr_temp, Int32.Parse);
+                SherlockAndCost sherlockAndCost = new SherlockAndCost();
+                int result = sherlockAndCost.cost(arr);
+                Console.WriteLine(result);
+            }
         }
     }
 }
