@@ -392,5 +392,20 @@ namespace HackerRankCode
                 Console.WriteLine(result);
             }
         }
+
+        // Utility method to run RemoveDuplicateLinkList Program
+        static void RunRemoveDuplicateLinkList()
+        {
+            Node head = null;
+            RemoveDuplicateLinkList removeDuplicateLinkList = new RemoveDuplicateLinkList();
+            int T = Int32.Parse(Console.ReadLine());
+            while (T-- > 0)
+            {
+                int data = Int32.Parse(Console.ReadLine());
+                head = removeDuplicateLinkList.insert(head, data);
+            }
+            head = removeDuplicateLinkList.removeDuplicates(head);
+            removeDuplicateLinkList.display(head);
+        }
     }
 }
