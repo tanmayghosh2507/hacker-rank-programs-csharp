@@ -51,5 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 .vs/
-*.obj
 bin/
+obj/
+.vscode/

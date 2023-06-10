@@ -23,7 +23,95 @@ namespace HackerRankCode
             //RunSherlockArray();
             //RunSamSubstring();
             //RunCoinChange();
-            var num = Console.ReadLine();
+            // var num = Console.ReadLine();
+            MinHeapImpl();
+
+            // QuickSortImpl();
+
+            // LRUCacheImpl();
+        }
+
+        static void MinHeapImpl()
+        {
+            MinHeap heap = new();
+            heap.Insert(4);
+            heap.Insert(7);
+            heap.Insert(10);
+            heap.Insert(6);
+            heap.Insert(15);
+
+            Console.WriteLine("Heap Size: " + heap.size);
+            Console.WriteLine("Min Element: " + heap.GetMin());
+
+            while(heap.size > 0)
+            {
+                Console.WriteLine("Deleted " + heap.DeleteMin());
+            }
+        }
+
+        static void QuickSortImpl()
+        {
+            QuickSort qSort = new();
+            int[] arr = new int[] {2, 5, 8, 4, 1, 7, 1, 9, 3};
+            qSort.QSort(arr);
+            foreach(int i in arr) {
+                Console.WriteLine(i);
+            }
+        }
+
+        static void LRUCacheImpl()
+        {
+            LRUCache lruCache = new(4);
+            lruCache.Put(7, 5);
+            lruCache.Put(5, 4);
+            lruCache.Put(4, 8);
+            lruCache.Put(2, 1);
+            lruCache.Put(7, 3);
+            lruCache.Get(5);
+        }
+
+        static void SetAssociativeCacheImpl() {
+            // SetAssociativeCache saCache = new(3,3);
+            // saCache.AddOrUpdate(10,5);
+            // saCache.AddOrUpdate(4,6);
+            // saCache.AddOrUpdate(6,2);
+            // saCache.AddOrUpdate(3,4);
+            // saCache.AddOrUpdate(5,1);
+            // saCache.AddOrUpdate(6,7);
+            // Console.WriteLine(saCache.GetValue(6));
+            // Console.WriteLine(saCache.GetValue(7));
+            // Console.WriteLine(saCache.GetValue(3));
+            // saCache.AddOrUpdate(7,9);
+            // saCache.AddOrUpdate(13,6);
+            // saCache.PrintCache();
+
+            SetAssociativeCache cache = new SetAssociativeCache(4, 2);
+
+            // Add some key-value pairs to the cache
+            cache.AddOrUpdate(1, 1);
+            cache.AddOrUpdate(2, 2);
+            cache.AddOrUpdate(3, 3);
+
+            // Retrieve values from the cache
+            Console.WriteLine("Value 1 found: " + cache.GetValue(1));
+            Console.WriteLine("Value 2 found: " + cache.GetValue(2));
+
+            // Add a new key-value pair that exceeds the cache capacity
+            cache.AddOrUpdate(4, 4);
+            cache.AddOrUpdate(5, 5);
+
+            // Retrieve values from the cache
+            Console.WriteLine("Value 3 found: " + cache.GetValue(3));
+            Console.WriteLine("Value 4 found: " + cache.GetValue(4));
+            Console.WriteLine("Value 5 found: " + cache.GetValue(5));
+
+            // Update an existing key-value pair
+            cache.AddOrUpdate(2, 22);
+
+            // Retrieve updated value from the cache
+            Console.WriteLine("Value 2 found: " + cache.GetValue(2));
+
+            cache.PrintCache();
         }
 
         // Utility method to run the Alice and Bob game program.

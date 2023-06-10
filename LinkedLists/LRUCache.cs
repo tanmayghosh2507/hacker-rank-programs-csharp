@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace InterviewPractice.LinkedLists
 {
@@ -97,7 +98,7 @@ namespace InterviewPractice.LinkedLists
         Node tail;
         int capacity;
 
-        public LRUCache(int capacity)
+        public MRUCache(int capacity)
         {
             this.capacity = capacity;
             head = new Node();

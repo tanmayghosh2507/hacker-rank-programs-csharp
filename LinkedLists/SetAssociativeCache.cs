@@ -12,10 +12,10 @@ namespace InterviewPractice.LinkedLists
     }
 
     // Interface for Using multiple cache replacement strategy
-    public interface ICacheReplacementStrategy<TKey>
+    public interface ICacheReplacementStrategy
     {
         // Replaces the cache in a case of a cache miss
-        public void UpdateCache(TKey key);
+        public void UpdateCache(int key);
 
         // Implementation of the key to cache set mapping
         public int GetIndexToUpdate();
@@ -61,20 +61,60 @@ namespace InterviewPractice.LinkedLists
         }
     }
 
-    // Single unit of information. A Cache with Key value pair and a flag to maintain it's validity.
-    public class Cache<TKey, TValue>
+    public class MRUCacheReplacementStrategy : ICacheReplacementStrategy
     {
-        public bool Valid { get; set; }
-        public TKey Key { get; set; }
-        public TValue Value { get; set; }
+        private int[] usageTimestamp;
+        private int currentTimestamp;
+        private readonly object lockObj = new object();
+
+        public MRUCacheReplacementStrategy(int N) {
+            usageTimestamp = new int[N];
+            currentTimestamp = 0;
+        }
+
+        // Update the usage timestamp of the corresponding cache
+        public void UpdateCache(int setIndex)
+        {
+            lock(lockObj) {
+                usageTimestamp[setIndex] = currentTimestamp++;
+            }
+        }
+
+        // Find a cache with the lowest LastUsed time
+        public int GetIndexToUpdate()
+        {
+            lock(lockObj) {
+                int maxLastUsed = int.MinValue;
+                int index = 0;
+
+                for(int i=0; i<usageTimestamp.Length; i++)
+                {
+                    if(usageTimestamp[i] > maxLastUsed)
+                    {
+                        maxLastUsed = usageTimestamp[i];
+                        index = i;
+                    }
+                }
+
+                return index;
+            }
+        }
     }
 
-    public class SetAssociativeCache<TKey, TValue>
+    // Single unit of information. A Cache with Key value pair and a flag to maintain it's validity.
+    public class Cache
+    {
+        public bool Valid { get; set; }
+        public int Key { get; set; }
+        public int Value { get; set; }
+    }
+
+    public class SetAssociativeCache
     {
         private readonly int S; // S no of sets
         private readonly int N; // n-sized sets
-        private readonly Cache<TKey, TValue>[][] cacheSet;  // This holds the cache List
-        private readonly Dictionary<TKey, int> keySet;   // This holds the key-set mapping for a quick lookup
+        private readonly Cache[][] cacheSet;  // This holds the cache List
+        private readonly Dictionary<int, int> keySet;   // This holds the key-set mapping for a quick lookup
         private readonly ICacheReplacementStrategy replacementAlgorithm;    // Replacement algo
         private readonly ReaderWriterLockSlim cacheLock;
 
@@ -82,8 +122,8 @@ namespace InterviewPractice.LinkedLists
         {
             S = numSets;
             N = sizeOfSet;
-            cacheSet = new Cache<TKey, TValue>[S][];  // Contains S*N spaces for keeping caches
-            keySet = new Dictionary<TKey, int>();    // Contains all keys(just the keys) in a set
+            cacheSet = new Cache[S][];  // Contains S*N spaces for keeping caches
+            keySet = new();    // Contains all keys(just the keys) in a set
 
             if(algorithm == Algorithms.MRU) {
                 replacementAlgorithm = new MRUCacheReplacementStrategy(S*N);
@@ -98,9 +138,9 @@ namespace InterviewPractice.LinkedLists
             cacheLock.EnterReadLock();
 
             try {
-                if(keySet.Contains(key))
+                if(keySet.ContainsKey(key))
                 {
-                    foreach (Cache c in cacheSet)
+                    foreach (Cache c in cacheSet[key])
                     {
                         if (c.Valid && c.Key == key)
                         {
@@ -129,7 +169,7 @@ namespace InterviewPractice.LinkedLists
                 {
                     cacheLock.EnterWriteLock();
                     try {
-                        cacheSet[setIndex].Value = value;
+                        cacheSet[setIndex][key].Value = value;
                         replacementAlgorithm.UpdateCache(setIndex);
                     }
                     finally
@@ -144,7 +184,7 @@ namespace InterviewPractice.LinkedLists
                         cacheLock.EnterWriteLock();
                         try {
                             int replaceIndex = replacementAlgorithm.GetIndexToUpdate();
-                            int keyToRemove = cacheSet[replaceIndex].Key;
+                            int keyToRemove = cacheSet[replaceIndex][key].Key;
                             setIndex = GetSetIndex(keyToRemove);
 
                             keySet.Remove(keyToRemove);
